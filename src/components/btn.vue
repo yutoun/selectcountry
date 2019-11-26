@@ -3,7 +3,7 @@
     <body>
       <div class="buttons">
           <a href="#" class="btn-circle-3d-emboss btn1" v-on:click="onClick">LIKE</a>
-            <a href="#" class="btn-circle-3d-emboss btn2">NOPE</a>
+            <a href="#" class="btn-circle-3d-emboss btn2" v-on:click="onClick2>NOPE</a>
       </div>
     </body>
   </div>

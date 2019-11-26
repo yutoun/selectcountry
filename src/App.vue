@@ -1,19 +1,17 @@
 <template>
   <div id="app">
     <pic/>
-    <btn/>
   </div>
 </template>
 
 <script>
 import pic from './components/pic'
-import btn from './components/btn'
+
 
 export default {
   name: 'App',
   components: {
-    pic,
-    btn
+    pic
   }
 }
 </script>
