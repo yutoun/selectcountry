@@ -99,8 +99,16 @@ h1 {
   height: 300px;
   text-align: center;
   margin: 0 auto;
+  animation: fadeIn 2s;
 }
-
+@keyframes fadeIn {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
 .btn-circle-3d-emboss {
   margin-top: 40px;
   display: inline-block;
@@ -118,6 +126,7 @@ h1 {
   text-shadow: -1px -1px rgba(255, 255, 255, 0.43), 1px 1px rgba(0, 0, 0, 0.49);
   transition: .4s;
 }
+
 
 .btn-circle-3d-emboss:active {
   -webkit-transform: translateY(2px);
