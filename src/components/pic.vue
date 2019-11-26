@@ -6,11 +6,9 @@
       WORLD RECOMMENDATION
     </h1>
     <div class="bigbox">
-      <transition name="slide">
-        <div class="" v-for="(pic,index) in pics" key:pic.url v-if="current_slide == index">
+        <div class="pictures" v-for="(pic,index) in pics" key:pic.url v-if="current_slide == index">
           <img v-bind:src="pic.url">
         </div>
-    </transition>
     </div>
     <div class="btns">
       <a class="btn-circle-3d-emboss btn1" v-on:click="onClick">LIKE</a>
@@ -101,19 +99,6 @@ h1 {
   height: 300px;
   text-align: center;
   margin: 0 auto;
-}
-
-.slide-enter-active,
-.slide-leave-active {
-  transition: transform .5s
-}
-
-.slide-enter {
-  transform: translateX(300px)
-}
-
-.slide-leave-active {
-  transform: translateX(-300px);
 }
 
 .btn-circle-3d-emboss {
