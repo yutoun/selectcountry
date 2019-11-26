@@ -99,14 +99,18 @@ h1 {
   height: 300px;
   text-align: center;
   margin: 0 auto;
-  animation: fadeIn 2s;
+  animation: fadeIn 0.4s;
 }
 @keyframes fadeIn {
     from {
         opacity:0;
+        transform: translate(0px);
+        opacity:1;
     }
     to {
         opacity:1;
+        transform: translate(-200px, -200px);
+        opacity: 0
     }
 }
 .btn-circle-3d-emboss {
