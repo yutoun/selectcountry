@@ -6,13 +6,13 @@
       WORLD RECOMMENDATION
     </h1>
     <div class="bigbox">
-        <div class="pictures" v-for="(pic,index) in pics" key:pic.url v-if="current_slide == index">
+        <div  v-for="(pic,index) in pics" key:pic.url v-if="current_slide == index" :class="{ pictures: item.move == 'left'}>
           <img v-bind:src="pic.url">
         </div>
     </div>
     <div class="btns">
       <a class="btn-circle-3d-emboss btn1" v-on:click="onClick">LIKE</a>
-      <a class="btn-circle-3d-emboss btn2" v-on:click="onClick">NOPE</a>
+      <a class="btn-circle-3d-emboss btn2" v-on:click="onClick2">NOPE</a>
     </div>
   </body>
 </div>
@@ -26,6 +26,7 @@ export default {
       msg: 'Welcome to Your Vue.js App',
       changePic: true,
       current_slide: 0,
+      item_move:'right',
       pics: [{
           url: 'https://tabippo.net/wp-content/uploads/shutterstock_218856097.jpg'
         },
@@ -64,16 +65,18 @@ export default {
   },
 
   methods: {
-    //   onClick:function(){
-    //     this.current_slide--;
-    //     if(this.current_slide == -1){
-    //       this.current_slide = this.slides.length -1;
-    //     }
-    // },
     onClick: function() {
       this.current_slide++;
       if (this.current_slide == this.slides.length) {
         this.current_slide = 0;
+        this.item_move= 'left'
+      }
+    },
+    onClick2: function() {
+      this.current_slide++;
+      if (this.current_slide == this.slides.length) {
+        this.current_slide = 0;
+        this.item_move= 'right'
       }
     }
   }
@@ -99,7 +102,7 @@ h1 {
   height: 300px;
   text-align: center;
   margin: 0 auto;
-  animation: fadeIn 0.4s;
+  animation: fadeIn 0.5s;
 }
 @keyframes fadeIn {
     from {
