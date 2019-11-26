@@ -1,0 +1,85 @@
+<template>
+  <div class="pic">
+    <body>
+    <div class="bigbox" >
+      <img v-bind:src="pic1.url" v-if="changePic">
+      <img v-bind:src="pic2.url" v-if="!changePic">
+    </div>
+    <div class="btns">
+      <a href="#" class="btn-circle-3d-emboss btn1" v-on:click="onClick">LIKE</a>
+      <a href="#" class="btn-circle-3d-emboss btn2">NOPE</a>
+    </div>
+    </body>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'pic',
+  data () {
+    return {
+      msg: 'Welcome to Your Vue.js App',
+      changePic:true,
+      pic1:{
+        url:'https://tabippo.net/wp-content/uploads/shutterstock_218856097.jpg',
+        country:'クロアチア'
+      },
+      pic2:{
+        url:'https://tabippo.net/wp-content/uploads/shutterstock_236549695.jpg',
+        country:'クロアチア'
+      }
+    }
+  },
+
+  methods:{
+      onClick:function(){
+        this.changePic = false
+        console.log(this.changePic)
+    }
+  }
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+  body{
+    margin:0px 100px;
+  }
+  .bigbox img{
+    background-color: red;
+    width: 400px;
+    height:300px;
+    text-align: center;
+    margin:0 auto;
+  }
+  .btn-circle-3d-emboss {
+    margin-top:40px;
+    display: inline-block;
+    text-decoration: none;
+    color: #ffba78;
+    width: 70px;
+    height: 70px;
+    font-size: 21px;
+    line-height: 73px;
+    border-radius: 50%;
+    overflow: hidden;
+    font-weight: bold;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+    border-bottom: solid 3px #d29963;
+    text-shadow: -1px -1px rgba(255, 255, 255, 0.43), 1px 1px rgba(0, 0, 0, 0.49);
+    transition: .4s;
+}
+.btn-circle-3d-emboss:active {
+  -webkit-transform: translateY(2px);
+  transform: translateY(2px);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.35);
+  border-bottom: none;
+}
+.btn1{
+  margin-right:130px;
+  background: rgb(249, 34, 34);
+}
+.btn2{
+  background: rgb(64, 80, 222);
+}
+</style>
