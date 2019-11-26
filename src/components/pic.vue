@@ -6,7 +6,7 @@
       WORLD RECOMMENDATION
     </h1>
     <div class="bigbox">
-        <div  v-for="(pic,index) in pics" key:pic.url v-if="current_slide == index" :class="{ pictures: item.move == 'left'}>
+        <div  v-for="(pic,index) in pics" key:pic.url v-if="current_slide == index" v-bind:class="{'pictures_left': item_move, 'pictures_right': item_move}">
           <img v-bind:src="pic.url">
         </div>
     </div>
@@ -26,7 +26,7 @@ export default {
       msg: 'Welcome to Your Vue.js App',
       changePic: true,
       current_slide: 0,
-      item_move:'right',
+      item_move:'true',
       pics: [{
           url: 'https://tabippo.net/wp-content/uploads/shutterstock_218856097.jpg'
         },
@@ -63,20 +63,19 @@ export default {
       ]
     }
   },
-
   methods: {
     onClick: function() {
       this.current_slide++;
       if (this.current_slide == this.slides.length) {
         this.current_slide = 0;
-        this.item_move= 'left'
+        this.item_move= 'true'
       }
     },
     onClick2: function() {
       this.current_slide++;
       if (this.current_slide == this.slides.length) {
         this.current_slide = 0;
-        this.item_move= 'right'
+        this.item_move= 'false'
       }
     }
   }
@@ -102,7 +101,12 @@ h1 {
   height: 300px;
   text-align: center;
   margin: 0 auto;
+}
+.pictures_right{
   animation: fadeIn 0.5s;
+}
+.pictures_left{
+  animation: fadeIn2 0.5s;
 }
 @keyframes fadeIn {
     from {
@@ -113,6 +117,18 @@ h1 {
     to {
         opacity:1;
         transform: translate(-200px, -200px);
+        opacity: 0
+    }
+}
+@keyframes fadeIn2 {
+    from {
+        opacity:0;
+        transform: translate(0px);
+        opacity:1;
+    }
+    to {
+        opacity:1;
+        transform: translate(200px, -200px);
         opacity: 0
     }
 }
