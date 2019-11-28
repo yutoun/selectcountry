@@ -1,5 +1,6 @@
 <template>
 <div class="pic">
+
   <body>
     <div class="recommend" v-if="current_slide == pics.length">
       <h1 class="forU">あなたにオススメの旅行先は〜〜？ in 西欧</h1>
@@ -13,7 +14,7 @@
         卒業旅こう、どこ行こう
       </h1>
       <div class="bigbox">
-        <div v-for="(pic,index) in pics" key:pic.url v-if="current_slide == index" class="parents" >
+        <div v-for="(pic,index) in pics" key:pic.url v-if="current_slide == index" class="parents">
           <img v-bind:src="pic.url" class="new">
           <img v-bind:src="pic.url" :class="[item_move ?  'pictures_right' : 'pictures_left']">
         </div>
@@ -39,132 +40,201 @@ export default {
       likes: [],
       nopes: [],
       theBest: '',
+      random: [],
       pics: [
-        // {
-        //   url: "../../static/pix/antelopecanyon_02.jpg",
-        //   area: 'アメリカアリゾナ州',
-        //   country:'アメリカ南'
-        // },
-        // {
-        //   url: "../../static/pix/borabora_01.jpg",
-        //   area: 'オセアニア',
-        //   country:'フランス領ポリネシア'
-        // },
+        // イギリス、アイルランド、フランス、ドイツ、ベルギー、イタリア、スペイン、ギリシャ、スイス
         {
           url: "../../static/pix/bagnoregio_03.jpg",
-          area: '西ヨーロッパ',
-          country:'イタリア'
+          area: 'イタリア'
         },
-        // {
-        //   url: "../../static/pix/canadianrockies_02.jpg",
-        //   area: 'カナダ',
-        //   country:'カナダ'
-        // },
-        // {
-        //   url: "../../static/pix/kauai_01.jpg",
-        //   area: 'オセアニア',
-        //   country:'ハワイ'
-        // },
-        // {
-        //   url: "../../static/pix/kelimutu_03.jpg",
-        //   area: 'アジア',
-        //   country:'インドネシア'
-        // },
         {
           url: "../../static/pix/lampedusa_01.jpg",
-          area: '西ヨーロッパ',
-          country:'イタリア'
+          area: 'イタリア'
         },
-        // {
-        //   url: "../../static/pix/marblecathedral_01.jpg",
-        //   area: '南米',
-        //   country:'チリ'
-        // },
-        // {
-        //   url: "../../static/pix/maroonbells_02.jpg",
-        //   area: 'アメリカ',
-        //   country:'アメリカコロラド州'
-        // },
+        {
+          url: "../../static/img/pix2/1.jpeg",
+          area: 'イタリア'
+        },
+        {
+          url: "../../static/img/pix2/2.jpeg",
+          area: 'イタリア'
+        },
+        {
+          url: "../../static/img/pix2/3.jpeg",
+          area: 'イタリア'
+        },
         {
           url: "../../static/pix/moher_01.jpg",
-          area: '西ヨーロッパ',
-          country:'アイルランド'
+          area: 'アイルランド'
         },
         {
-          url: "../../static/pix/plitvice_01.jpg",
-          area: '中央ヨーロッパ',
-          country:'クロアチア'
+          url: "../../static/img/ireland/images1.jpeg",
+          area: 'アイルランド'
         },
-        // {
-        //   url: "../../static/pix/reed_01.jpg",
-        //   area: 'アジア',
-        //   country:'中国'
-        // },
-        // {
-        //   url: "../../static/pix/roraima_01.jpg",
-        //   area: '南米',
-        //   country:'ブラジル'
-        // },
-        // {
-        //   url: "../../static/pix/samui_01.jpg",
-        //   area: 'アジア',
-        //   country:'タイ'
-        // },
-        // {
-        //   url: "../../static/pix/sapa_01.jpg",
-        //   area: 'アジア',
-        //   country:'ベトナム'
-        // },
         {
-          url: "../../static/pix/seljalandsfoss_01.jpg",
-          area: '北欧',
-          country:'アイスランド'
+          url: "../../static/img/ireland/images2.jpeg",
+          area: 'アイルランド'
         },
-        // {
-        //   url: "../../static/pix/tekapo_01.jpg",
-        //   area: 'オセアニア',
-        //   country:'ニュージーランド'
-        // },
         {
-          url: "../../static/pix/tunnel_01.jpg",
-          area: '東ヨーロッパ',
-          country:'ウクライナ'
+          url: "../../static/img/ireland/images3.jpeg",
+          area: 'アイルランド'
         },
-        // {
-        //   url: "../../static/pix/uyuni_01.jpg",
-        //   area: '南米',
-        //   country:'ボリビア'
-        // },
         {
-          url: "../../static/pix/vatnajokull_01.jpg",
-          area: '',
-          country:'アイスランド'
+          url: "../../static/img/ireland/images.jpeg",
+          area: 'アイルランド'
         },
-        // {
-        //   url: "../../static/pix/whitehaven_01.jpg",
-        //   area: '',
-        //   country:'オーストラリア'
-        // },
-        // {
-        //   url: "../../static/pix/yellowstone_01.jpg",
-        //   area: '北アメリカ',
-        //   country:'アメリカアイダホ州'
-        // },
-        // {
-        //   url: "../../static/pix/yellowknife_01.jpg",
-        //   area: '北アメリカ',
-        //   country:'カナダ'
-        // },
         {
           url: "../../static/pix/zakynthos_01.jpg",
-          area: '',
-          country:'ギリシャ'
+          area: 'ギリシャ'
+        },
+        {
+          url: "../../static/img/greek/acropolice.jpg",
+          area: 'ギリシャ'
+        },
+        {
+          url: "../../static/img/greek/ege.jpg",
+          area: 'ギリシャ'
+        },
+        {
+          url: "../../static/img/greek/meteora.jpg",
+          area: 'ギリシャ'
+        },
+        {
+          url: "../../static/img/greek/music.jpg",
+          area: 'ギリシャ'
+        },
+        {
+          url: "../../static/img/spain/toredo.jpg",
+          area: 'スペイン'
+        },
+        {
+          url: "../../static/img/spain/sakura.jpg",
+          area: 'スペイン'
+        },
+        {
+          url: "../../static/img/spain/resort.jpg",
+          area: 'スペイン'
+        },
+        {
+          url: "../../static/img/spain/mura.jpg",
+          area: 'スペイン'
+        },
+        {
+          url: "../../static/img/spain/anda.jpg",
+          area: 'スペイン'
+        },
+        {
+          url: "../../static/img/france/castle.jpg",
+          area: 'フランス'
+        },
+        {
+          url: "../../static/img/france/gran.jpg",
+          area: 'フランス'
+        },
+        {
+          url: "../../static/img/france/kawa.jpg",
+          area: 'フランス'
+        },
+        {
+          url: "../../static/img/france/nak.jpg",
+          area: 'フランス'
+        },
+        {
+          url: "../../static/img/france/vel.jpg",
+          area: 'フランス'
+        },
+        {
+          url: "../../static/img/german/higata.jpg",
+          area: 'ドイツ'
+        },
+        {
+          url: "../../static/img/german/kawa.jpg",
+          area: 'ドイツ'
+        },
+        {
+          url: "../../static/img/german/siro.jpg",
+          area: 'ドイツ'
+        },
+        {
+          url: "../../static/img/german/siro2.jpg",
+          area: 'ドイツ'
+        },
+        {
+          url: "../../static/img/german/sirosan.jpg",
+          area: 'ドイツ'
+        },
+        {
+          url: "../../static/img/swiss/1.jpg",
+          area: 'スイス'
+        },
+        {
+          url: "../../static/img/swiss/2.jpg",
+          area: 'スイス'
+        },
+        {
+          url: "../../static/img/swiss/3.jpg",
+          area: 'スイス'
+        },
+        {
+          url: "../../static/img/swiss/4.jpg",
+          area: 'スイス'
+        },
+        {
+          url: "../../static/img/swiss/5.jpg",
+          area: 'スイス'
+        },
+        {
+          url: "../../static/img/belgium/1.jpeg",
+          area: 'ベルギー'
+        },
+        {
+          url: "../../static/img/belgium/2.jpeg",
+          area: 'ベルギー'
+        },
+        {
+          url: "../../static/img/belgium/3.jpeg",
+          area: 'ベルギー'
+        },
+        {
+          url: "../../static/img/belgium/4.jpeg",
+          area: 'ベルギー'
+        },
+        {
+          url: "../../static/img/belgium/5.jpeg",
+          area: 'ベルギー'
+        },
+        {
+          url: "../../static/img/england/1.jpg",
+          area: 'イギリス'
+        },
+        {
+          url: "../../static/img/england/2.jpg",
+          area: 'イギリス'
+        },
+        {
+          url: "../../static/img/england/3.jpg",
+          area: 'イギリス'
+        },
+        {
+          url: "../../static/img/england/4.jpg",
+          area: 'イギリス'
+        },
+        {
+          url: "../../static/img/england/5.jpg",
+          area: 'イギリス'
         }
       ]
     }
   },
   methods: {
     onClick: function() {
+      // for (i = this.pics.length - 1; i > 0; i--) {
+      //   var j = Math.floor(Math.random() * (i + 1));
+      //   var tmp = array[i];
+      //   array[i] = array[j];
+      //   array[j] = tmp;
+      // }
+      // console.log(this.pics);
       this.current_slide++;
       // console.log(this.current_slide, this.pics.length)
       // if (this.current_slide == this.pics.length) {
@@ -315,14 +385,14 @@ h1 {
   margin: 0 auto;
 }
 
-.parents{
+.parents {
   position: relative;
 }
 
-.new{
+.new {
   position: absolute;
-  top:0;
-  left:0;
+  top: 0;
+  left: 0;
 }
 
 .bigbox {
