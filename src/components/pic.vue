@@ -1,22 +1,21 @@
 <template>
 <div class="pic">
-
   <body>
     <div class="recommend" v-if="current_slide == pics.length">
-      <h1 class="forU">あなたにオススメの旅行先は〜〜？</h1>
+      <h1 class="forU">あなたにオススメの旅行先は〜〜？ in 西欧</h1>
       <div class="bestArea">
-        <img src="../../pix/1428178.png" class="explosion">
+        <img src="../../static/pix/1428178.png" class="explosion">
         <h1 class="text">{{theBest}}</h1>
       </div>
     </div>
     <div class="nomore" v-else>
       <h1 class="title">
-        卒業旅こう、どこ行こう！？
+        卒業旅こう、どこ行こう
       </h1>
       <div class="bigbox">
-        <div v-for="(pic,index) in pics" key:pic.url v-if="current_slide == index" :class="[item_move ?  'pictures_right' : 'pictures_left']">
-          <img v-bind:src="pic.url">
-          <!-- <p>{{pic.area}}</p> -->
+        <div v-for="(pic,index) in pics" key:pic.url v-if="current_slide == index" class="parents" >
+          <img v-bind:src="pic.url" class="new">
+          <img v-bind:src="pic.url" :class="[item_move ?  'pictures_right' : 'pictures_left']">
         </div>
       </div>
       <div class="btns">
@@ -40,49 +39,126 @@ export default {
       likes: [],
       nopes: [],
       theBest: '',
-      pics: [{
-          url: 'https://tabippo.net/wp-content/uploads/shutterstock_218856097.jpg',
-          area: 'SouthAmerica'
+      pics: [
+        // {
+        //   url: "../../static/pix/antelopecanyon_02.jpg",
+        //   area: 'アメリカアリゾナ州',
+        //   country:'アメリカ南'
+        // },
+        // {
+        //   url: "../../static/pix/borabora_01.jpg",
+        //   area: 'オセアニア',
+        //   country:'フランス領ポリネシア'
+        // },
+        {
+          url: "../../static/pix/bagnoregio_03.jpg",
+          area: '西ヨーロッパ',
+          country:'イタリア'
+        },
+        // {
+        //   url: "../../static/pix/canadianrockies_02.jpg",
+        //   area: 'カナダ',
+        //   country:'カナダ'
+        // },
+        // {
+        //   url: "../../static/pix/kauai_01.jpg",
+        //   area: 'オセアニア',
+        //   country:'ハワイ'
+        // },
+        // {
+        //   url: "../../static/pix/kelimutu_03.jpg",
+        //   area: 'アジア',
+        //   country:'インドネシア'
+        // },
+        {
+          url: "../../static/pix/lampedusa_01.jpg",
+          area: '西ヨーロッパ',
+          country:'イタリア'
+        },
+        // {
+        //   url: "../../static/pix/marblecathedral_01.jpg",
+        //   area: '南米',
+        //   country:'チリ'
+        // },
+        // {
+        //   url: "../../static/pix/maroonbells_02.jpg",
+        //   area: 'アメリカ',
+        //   country:'アメリカコロラド州'
+        // },
+        {
+          url: "../../static/pix/moher_01.jpg",
+          area: '西ヨーロッパ',
+          country:'アイルランド'
         },
         {
-          url: 'https://tabippo.net/wp-content/uploads/shutterstock_236549695.jpg',
-          area: 'Europe'
+          url: "../../static/pix/plitvice_01.jpg",
+          area: '中央ヨーロッパ',
+          country:'クロアチア'
         },
+        // {
+        //   url: "../../static/pix/reed_01.jpg",
+        //   area: 'アジア',
+        //   country:'中国'
+        // },
+        // {
+        //   url: "../../static/pix/roraima_01.jpg",
+        //   area: '南米',
+        //   country:'ブラジル'
+        // },
+        // {
+        //   url: "../../static/pix/samui_01.jpg",
+        //   area: 'アジア',
+        //   country:'タイ'
+        // },
+        // {
+        //   url: "../../static/pix/sapa_01.jpg",
+        //   area: 'アジア',
+        //   country:'ベトナム'
+        // },
         {
-          url: 'https://www.ab-road.net/article/northamerica-scenic-view/misc/img/img-thumb01.jpg',
-          area: 'Europe'
+          url: "../../static/pix/seljalandsfoss_01.jpg",
+          area: '北欧',
+          country:'アイスランド'
         },
+        // {
+        //   url: "../../static/pix/tekapo_01.jpg",
+        //   area: 'オセアニア',
+        //   country:'ニュージーランド'
+        // },
         {
-          url: 'https://tabippo.net/wp-content/uploads/shutterstock_210597787.jpg',
-          area: 'America'
+          url: "../../static/pix/tunnel_01.jpg",
+          area: '東ヨーロッパ',
+          country:'ウクライナ'
         },
+        // {
+        //   url: "../../static/pix/uyuni_01.jpg",
+        //   area: '南米',
+        //   country:'ボリビア'
+        // },
         {
-          url: 'https://japan-info.asia/wp-content/uploads/2018/06/Unknown-6.jpeg',
-          area: 'Europe'
+          url: "../../static/pix/vatnajokull_01.jpg",
+          area: '',
+          country:'アイスランド'
         },
+        // {
+        //   url: "../../static/pix/whitehaven_01.jpg",
+        //   area: '',
+        //   country:'オーストラリア'
+        // },
+        // {
+        //   url: "../../static/pix/yellowstone_01.jpg",
+        //   area: '北アメリカ',
+        //   country:'アメリカアイダホ州'
+        // },
+        // {
+        //   url: "../../static/pix/yellowknife_01.jpg",
+        //   area: '北アメリカ',
+        //   country:'カナダ'
+        // },
         {
-          url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPogMHp6Z0CVY4wZXHEEDwhG7u14u21gTM4LArRz0r9GDFZB_f1A&s',
-          area: 'Africa'
-        },
-        {
-          url: 'https://d1m1bsps9tiz0g.cloudfront.net/system/App/Blog/thumbnails/000/001/719/large/f0eeec12af972cc07f35dc58428e3a6a.jpg',
-          area: 'Europe'
-        },
-        {
-          url: 'https://taptrip.jp/system/App/BlogBody/photos/000/025/343/original/b56b185803318e8bdf3926147c1ae4be.jpeg',
-          area: 'Asia'
-        },
-        {
-          url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvPZNeQZcHOsmrfwfU-YPiLQ0W5uyLd7QQ0dwXqTWDPD1t35ix&s',
-          area: 'SouthAmerica'
-        },
-        {
-          url: 'https://x.hankyu-travel.com/photo_db/image_search_kikan5.php?p_photo_mno=00000-BP16_-04817.jpg',
-          area: 'Asia'
-        },
-        {
-          url: 'https://x.hankyu-travel.com/cms_photo_image/image_search_kikan3.php?p_photo_mno=00000-BP17_-07539.jpg',
-          area: 'America'
+          url: "../../static/pix/zakynthos_01.jpg",
+          area: '',
+          country:'ギリシャ'
         }
       ]
     }
@@ -96,7 +172,7 @@ export default {
       // }
       this.item_move = true
       // console.log(this.likes)
-      this.likes.push(this.pics[this.current_slide-1].area)
+      this.likes.push(this.pics[this.current_slide - 1].area)
       console.log(this.likes)
       var mode = a => {
         a.sort((x, y) => x - y);
@@ -125,7 +201,7 @@ export default {
 
       console.log(this.likes);
       console.log(mode(this.likes));
-      console.log(mode([1,2,4,1]));
+      console.log(mode([1, 2, 4, 1]));
       this.theBest = mode(this.likes)
     }, //このlikes(nopesは要らない)配列の中に入っている中での最頻値をtheBestに入れるのみ
 
@@ -137,6 +213,35 @@ export default {
       this.item_move = false
       this.nopes.push(this.pics[this.current_slide].area)
       console.log(this.nopes)
+
+      var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/pricing/v1.0",
+        "method": "POST",
+        "headers": {
+          "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
+          "x-rapidapi-key": "c74ace6580msh10b1b48d2da0872p10b67ajsnafd09800da28",
+          "content-type": "application/x-www-form-urlencoded"
+        },
+        "data": {
+          "inboundDate": "2019-09-10",
+          "cabinClass": "business",
+          "children": "0",
+          "infants": "0",
+          "country": "JP",
+          "currency": "JPY",
+          "locale": "ja-JP",
+          "originPlace": "NRT-sky",
+          "destinationPlace": "CTS-sky",
+          "outboundDate": "2019-12-11",
+          "adults": "1"
+        }
+      }
+
+      axios(settings).done(function(response) {
+        console.log(response);
+      });
     }
   }
 }
@@ -149,11 +254,11 @@ body {
   height: 300px;
 }
 
-.forU{
+.forU {
   margin-top: 50px;
 }
 
-.bestArea{
+.bestArea {
   /* animation: bigger 2s;
   animation-fill-mode: forwards;
   animation-delay: 2s; */
@@ -162,19 +267,27 @@ body {
 }
 
 @keyframes bigger {
-  0%   {
+  0% {
     -webkit-transform: scale(0, 0);
     opacity: 0;
   }
-  100%  {
-     -webkit-transform: scale(2, 2);
-     opacity: 1;
+
+  100% {
+    -webkit-transform: scale(2, 2);
+    opacity: 1;
   }
 }
 
-@-webkit-keyframes bigger { /* Safari & Chrome */
-  0%   { -webkit-transform: scale(0, 0); }
-  100%  { -webkit-transform: scale(2, 2); }
+@-webkit-keyframes bigger {
+
+  /* Safari & Chrome */
+  0% {
+    -webkit-transform: scale(0, 0);
+  }
+
+  100% {
+    -webkit-transform: scale(2, 2);
+  }
 }
 
 /* img .explosion{
@@ -182,12 +295,13 @@ body {
 
 } */
 
-.text{
+.text {
   position: absolute;
-  top:32%;
+  top: 32%;
   /* なんで？ */
-  left:43%;
+  left: 43%;
 }
+
 h1 {
   text-align: center;
   color: black;
@@ -195,11 +309,20 @@ h1 {
 }
 
 .bigbox img {
-  background-color: red;
   width: 400px;
   height: 300px;
   text-align: center;
   margin: 0 auto;
+}
+
+.parents{
+  position: relative;
+}
+
+.new{
+  position: absolute;
+  top:0;
+  left:0;
 }
 
 .bigbox {
